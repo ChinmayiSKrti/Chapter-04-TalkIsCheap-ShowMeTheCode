@@ -1,0 +1,76 @@
+1.Is JSX/Typescript/ES6 mandatory to write React code? - No
+
+2.Any JSX you write, there can only be one parent element
+
+3.React.Fragment - Is a component exported from React = <></>(shorthand for React.Fragment)
+
+4.React.Fragment can be used inside React.Fragment -> Yes
+
+5.Array.join() : 
+join() method returns an array as a String, doesnt change the original array
+Eg: const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let text = fruits.join();
+Output: Banana, Orange, Apple, Mango
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let text = fruits.join(" and ");
+Output: Banana and Orange and Apple and Mango
+
+6.Config Driven UI : When building real world application for different places,
+we build websites such a way that we can control our frontend with config,
+as its not feasible to have different application for different places for instance.
+Backend is driving that config.
+
+7.Optional chaining (?.): operator accesses an object's property or function
+If the object accessed or function called is undefined or null,
+it returns undefined instead of throwing an error
+
+Eg1:const adventurer = {
+  name: 'Alice',
+  cat: {
+    name: 'Dinah'
+  }
+};
+const dogName = adventurer.dog?.name;
+console.log(dogName); // undefined
+
+Eg2:const adventurer = {
+  name: 'Alice',
+  cat: {
+    name: 'Dinah'
+  }
+};
+const catName = adventurer.cat?.name;
+console.log(catName); // 'Dinah'
+
+8.props: passing some properties/data inside your component
+
+9.destructuring and using spread operator for props passing 
+-> Ref TheoryAssignment for demo examples
+
+10.Difference between map and for loop
+->i)The map() method returns a new array, 
+whereas the forEach() method does not return a new array.
+ii)The map() method is used to transform the elements of an array, 
+whereas the forEach() method is used to loop through the elements of an array.
+iii)The map() method can be used with other array methods, such as the filter() method, 
+whereas the forEach() method cannot be used with other array methods.
+
+11.Virtual DOM:
+We keep a representation of actual DOM which is called virtual DOM
+Why do we need it?
+Reconciliation is the process where React uses Diff algorithm to find out the difference between
+actual and virtual DOM to find out what exactly needs to be updated in UI, and just updates that part 
+
+12.keys:
+Warning: Each child in a list should have a unique "key" prop
+Provide keys in case if a parent element contains children with same tag to remove above warning.
+
+13.Why dont we use index as a key?
+no key(not acceptable) < index as key(if unique key doesnt exists, then okay) < unique key(best practice)
+If we use index as key to a list of elements, and suppose the list changes,
+it will cause issues after adding or removing the items from the list
+Explained well with example in the below video.
+Ref: https://www.youtube.com/watch?v=xlPxnc5uUPQ
+
+
+

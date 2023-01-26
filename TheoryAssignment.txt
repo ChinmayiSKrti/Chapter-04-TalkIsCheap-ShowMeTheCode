@@ -1,0 +1,86 @@
+1.Is JSX mandatory for React?
+->No its not mandatory, JSX just makes writing react code easy by syntax, thats why we use it
+
+2.Is ES6 mandatory for React? 
+-> No its not mandatory, ES6 provides features which makes writing code easy for developers
+
+3.{TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>} in JSX
+->{TitleComponent} - Functions are not valid as a React child warning is thrown and its not rendered
+To render it, call the functional component like this {TitleComponent()}
+{<TitleComponent/>} - Will render that functional component, 
+<TitleComponent/> intern gets converted to React.createElemnt() which is written in JS syntax inside {}
+{<TitleComponent></TitleComponent>} - Will render that functional component
+<TitleComponent></TitleComponent> intern gets converted to React.createElemnt(),
+which is written in JS syntax inside {}
+
+4.How can I write comments in JSX?
+->Comments in JSX is also, at the end of the day is JS comments,
+so it can be written inside {}, // or /**/
+
+5.What is <React.Fragment></React.Fragment> and <></>?
+->React.Fragment is a component in React which is used to wrap multiple tags,
+to return single parent element from any functional component
+
+6.What is Virtual DOM?
+->We keep a representation of actual DOM which is called virtual DOM
+
+7.What is Reconciliation in React?
+->Reconciliation is the process where React uses Diff algorithm to find out the difference between
+actual and virtual DOM to find out what exactly needs to be updated in UI, and just updates that part
+
+8.What is React Fiber?
+-> React Fiber is internal engine change implemented to make React faster and Smarter.
+Fiber reconciler became default reconciler for React 16 and above, is a complete rewrite for 
+React's reconciliation algorithm
+Ref: https://blog.logrocket.com/deep-dive-react-fiber/
+
+9.Why we need keys in React? When do we need keys in React?
+-> We need keys in React to avoid unwanted rerendering of elements
+If ul tag has 3 li s and 4th is added to the first position, React if keys isnt provided
+will repaint all 4 li s again(happens only if tags are same)
+
+10.Can we use index as keys in React?
+-> We may use index as keys in case there is no unique keys available for us to uniquly identify tags
+But its best practice to use unique keys  
+
+11.What is props in React? Ways to provide props to components
+->props are properties given to the components.
+Props can be given to component in the following ways:
+i)const nameList = { name: "Chinmayi"}
+<HeaderComponent list={nameList}/>
+const HeaderComponent = (props) => {
+    //can be used as props.list.name
+}
+
+ii)const nameList = { name: "Chinmayi"}
+<HeaderComponent list={nameList}/>
+const HeaderComponent = ({list}) => {
+    //can be used as list.name
+}
+
+iii)const nameList = { name: "Chinmayi"}
+<HeaderComponent list={nameList}/>
+const HeaderComponent = ({list}) => {
+    //const {name} = list
+    //can be used as name
+}
+
+iv)const nameList = { name: "Chinmayi", age: 1}
+<HeaderComponent name={nameList.name} age={nameList.age}/>
+const HeaderComponent = ({name, age}) => {
+    //can be used as name
+    //can be used as age
+}
+
+v)const nameList = { name: "Chinmayi", age: 1}
+<HeaderComponent {...nameList}/>
+const HeaderComponent = ({name, age}) => {
+    //can be used as name
+    //can be used as age
+}
+
+12.What is Config Driven UI?
+->When building real world application for different places,
+we build websites such a way that we can control our frontend with config,
+as its not feasible to have different application for different places for instance.
+Backend is driving that config.
